@@ -1,0 +1,38 @@
+{
+  "name": "Flutter",
+  "dockerFile": "Dockerfile",
+  "remoteUser": "developer",
+
+  // Set *default* container specific settings.json values on container create
+  "settings": {},
+
+  // Add the IDs of extensions you want installed when the container is created
+  "extensions": [
+    "yzhang.markdown-all-in-one",
+    "dart-code.dart-code",
+    "dart-code.flutter"
+  ],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "flutter doctor",
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally
+  "forwardPorts": [8090],
+
+  // Uncomment for Linux OS Host
+  "runArgs": [
+    // Uncomment for USB Debugging suport
+    "--privileged",
+    "--mount",
+    "source=/dev/bus/usb,target=/dev/bus/usb,type=bind",
+    // // Uncomment for Android Emulator passthrough support (Work in Progress)
+    // "--device",
+    // "/dev/kvm",
+    // "--device",
+    // "/dev/dri:/dev/dri",
+    // "-v",
+    // "/tmp/.X11-unix:/tmp/.X11-unix",
+    // "-e",
+    // "DISPLAY"
+  ]
+}
