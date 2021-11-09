@@ -20,11 +20,11 @@
   "forwardPorts": [8090],
 
   // Uncomment for Linux OS Host
-  "runArgs": [
-    // Uncomment for USB Debugging suport
-    "--privileged",
-    "--mount",
-    "source=/dev/bus/usb,target=/dev/bus/usb,type=bind",
+  // "runArgs": [
+    // // Uncomment for USB Debugging suport
+    // "--privileged",
+    // "--mount",
+    // "source=/dev/bus/usb,target=/dev/bus/usb,type=bind",
     // // Uncomment for Android Emulator passthrough support (Work in Progress)
     // "--device",
     // "/dev/kvm",
@@ -34,5 +34,5 @@
     // "/tmp/.X11-unix:/tmp/.X11-unix",
     // "-e",
     // "DISPLAY"
-  ]
+  // ]
 }
