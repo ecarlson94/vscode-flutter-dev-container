@@ -13,6 +13,7 @@ A new Flutter project.
     - [Android USB Debugging](#android-usb-debugging)
         - [Linux](#linux)
         - [MacOS/Windows](#macoswindows-2)
+- [Resources](#resources)
 
 ## Requirements
 
@@ -122,3 +123,7 @@ Inside dev container
    ```bash
    flutter run
    ```
+
+## Resources
+- [matsp/docker-flutter](https://github.com/matsp/docker-flutter)
+- [How to dockerize Flutter apps, Souvik Biswas](https://blog.codemagic.io/how-to-dockerize-flutter-apps/)
