@@ -1,18 +1,19 @@
-# Flutter Dev Container<!-- omit in toc -->
+# Learn Flutter!<!-- omit in toc -->
 
 A new Flutter project.
 
 ## Table of Contents<!-- omit in toc -->
 - [Requirements](#requirements)
-    - [MacOS/Windows](#macoswindows)
+   - [MacOS/Windows](#macoswindows)
+   - [Emulation](#emulation)
 - [Getting Started](#getting-started)
-    - [Web Hosting](#web-hosting)
-    - [Android Emulator](#android-emulator)
-        - [Linux (WIP)](#linux-wip)
-        - [MacOS/Windows](#macoswindows-1)
-    - [Android USB Debugging](#android-usb-debugging)
-        - [Linux](#linux)
-        - [MacOS/Windows](#macoswindows-2)
+   - [Web Hosting](#web-hosting)
+   - [Android USB/Wireless Debugging](#android-usbwireless-debugging)
+      - [Linux](#linux)
+      - [MacOS/Windows](#macoswindows-1)
+   - [Android Emulator (WIP)](#android-emulator-wip)
+      - [Linux](#linux-1)
+      - [MacOS/Windows](#macoswindows-2)
 - [Resources](#resources)
 
 ## Requirements
@@ -24,12 +25,16 @@ A new Flutter project.
 
 ### MacOS/Windows
 
-- [adb (if using USB debugging or Android emulator)](https://developer.android.com/studio/releases/platform-tools#downloads)
+- [adb (if using Wireless debugging or Android emulator)](https://developer.android.com/studio/releases/platform-tools#downloads)
   - Add `adb` executable to your PATH variable
+
+### Emulation
+
+- [Android Studio](https://developer.android.com/studio)
+- [Android Virtual Device](https://developer.android.com/studio/run/managing-avds)
 
 ## Getting Started
 
-1. Copy contents of `./.devcontainer` into your project
 1. Open folder in VSCode
 1. Click `Reopen in container` from bottom right prompt
 
@@ -42,43 +47,17 @@ A new Flutter project.
 
 The application should be accessible at `http://localhost:8090`
 
-### Android Emulator
+### Android USB/Wireless Debugging
 
-#### Linux (WIP)
-
-1. Uncomment the portions of [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) related to `Linux OS Host` and `Android Emulator Support`
+Ensure developer mode is turned on and USB Debugging (Wireless Debugging for MacOS/Windows) is enabled on the mobile device.
 1. Connect your android device
-1. Open command pallete in VS Code and select `Remote-Containers: Rebuild Container`
-1. In a terminal inside the container, run the following command at the root of the repository
-   ```bash
-   flutter emulators --launch flutter_emulator
-   ```
-1. In a new terminal inside the container, run the following command at the root of the repository
-   ```bash
-   flutter run
-   ```
+1. Set the connection mode to `PTP` or `File transfer / Android Auto` inside the mobile device.
 
-#### MacOS/Windows
-
-1. Start your local android emulator and run the following command on the host to make the emulator accessible via the network
-   ```bash
-   adb tcpip 5555
-   ```
-1. In a terminal inside the docker container, run the following command to connect to the emulator
-   ```bash
-   adb connect host.docker.internal:555
-   ```
-1. In a terminal inside the container, run the following command at the root of the repository
-   ```bash
-   flutter run
-   ```
-
-### Android USB Debugging
+   ![image](https://user-images.githubusercontent.com/6665964/141025055-1ee27ecb-b912-47c1-94d3-7cc09da6bc9a.png)
 
 #### Linux
 
 1. Uncomment the portions of [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) related to `Linux OS Host` and `USB Debugging Support`
-1. Connect your android device
 1. Open command pallete in VS Code and select `Remote-Containers: Rebuild Container`
 1. Run the following command at the root of the repository
    ```bash
@@ -87,7 +66,7 @@ The application should be accessible at `http://localhost:8090`
 
 #### MacOS/Windows
 
-Your android device and computer will need to be on the same network. Connect your android device to your computer.
+Your android device and computer will need to be on the same network. Since USB passthrough cannot be accomplished on Mac and Windows, we will configure debugging over the network.
 
 In a terminal the host machine:
 1. Run the following command to see the list of connected devices
@@ -124,6 +103,38 @@ Inside dev container
    flutter run
    ```
 
+### Android Emulator (WIP)
+
+#### Linux
+
+1. Uncomment the portions of [.devcontainer/devcontainer.json](./.devcontainer/devcontainer.json) related to `Linux OS Host` and `Android Emulator Support`
+1. Connect your android device
+1. Open command pallete in VS Code and select `Remote-Containers: Rebuild Container`
+1. In a terminal inside the container, run the following command at the root of the repository
+   ```bash
+   flutter emulators --launch flutter_emulator
+   ```
+1. In a new terminal inside the container, run the following command at the root of the repository
+   ```bash
+   flutter run
+   ```
+
+#### MacOS/Windows
+
+1. Start your local android emulator and run the following command on the host to make the emulator accessible via the network
+   ```bash
+   adb tcpip 5555
+   ```
+1. In a terminal inside the docker container, run the following command to connect to the emulator
+   ```bash
+   adb connect host.docker.internal:555
+   ```
+1. In a terminal inside the container, run the following command at the root of the repository
+   ```bash
+   flutter run
+   ```
+
 ## Resources
 - [matsp/docker-flutter](https://github.com/matsp/docker-flutter)
 - [How to dockerize Flutter apps, Souvik Biswas](https://blog.codemagic.io/how-to-dockerize-flutter-apps/)
+
