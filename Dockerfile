@@ -4,7 +4,7 @@ ENV UID=1000
 ENV GID=1000
 ENV USER="developer"
 ENV JAVA_VERSION="8"
-ENV ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-6858069.zip"
+ENV ANDROID_TOOLS_URL="https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip"
 ENV ANDROID_VERSION="29"
 ENV ANDROID_BUILD_TOOLS_VERSION="29.0.3"
 ENV ANDROID_ARCHITECTURE="x86_64"
@@ -59,11 +59,13 @@ RUN curl -o flutter.tar.xz $FLUTTER_URL \
   && yes "y" | flutter doctor --android-licenses \
   && flutter doctor \
   && flutter emulators --create \
-  && flutter update-packages
+  && flutter update-packages \
+  && flutter upgrade
 
 COPY entrypoint.sh /usr/local/bin/
 COPY chown.sh /usr/local/bin/
 COPY flutter-android-emulator.sh /usr/local/bin/flutter-android-emulator
 COPY flutter-web.sh /usr/local/bin/flutter-web
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
+
 
