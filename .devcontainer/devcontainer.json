@@ -13,7 +13,7 @@
     "felixangelov.bloc"
   ],
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "flutter upgrade && flutter doctor",
+  "postCreateCommand": "flutter doctor",
   "forwardPorts": [
     8090
   ],
