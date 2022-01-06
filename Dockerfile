@@ -26,6 +26,15 @@ RUN apt-get update \
   && apt-get install --yes --no-install-recommends openjdk-$JAVA_VERSION-jdk curl unzip sed git bash xz-utils libglvnd0 ssh xauth x11-xserver-utils libpulse0 libxcomposite1 libgl1-mesa-glx sudo \
   && rm -rf /var/lib/{apt,dpkg,cache,log}
 
+# Set the locale
+RUN apt-get update \
+    && apt-get install -y locales \
+    && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
+    && locale-gen
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 # create user
 RUN groupadd --gid $GID $USER \
   && useradd -s /bin/bash --uid $UID --gid $GID -m $USER \
