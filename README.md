@@ -121,13 +121,17 @@ Inside dev container
 
 #### MacOS/Windows
 
+1. Download Android SDK Platform tools.zip and extract files
+   - Windows: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
+   - MacOS: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip
 1. Start your local android emulator and run the following command on the host to make the emulator accessible via the network
+   - For Windows: Open folder containing extracted Android SDK Platform tools files and run command prompt from that location to use adb commands
    ```bash
    adb tcpip 5555
    ```
 1. In a terminal inside the docker container, run the following command to connect to the emulator
    ```bash
-   adb connect host.docker.internal:555
+   adb connect host.docker.internal:5555
    ```
 1. In a terminal inside the container, run the following command at the root of the repository
    ```bash
