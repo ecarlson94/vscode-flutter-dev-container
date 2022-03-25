@@ -124,7 +124,7 @@ Inside dev container
 1. Download Android SDK Platform tools.zip and extract files
    - Windows: https://dl.google.com/android/repository/platform-tools-latest-windows.zip
    - MacOS: https://dl.google.com/android/repository/platform-tools-latest-darwin.zip
-3. Start your local android emulator and run the following command on the host to make the emulator accessible via the network
+1. Start your local android emulator and run the following command on the host to make the emulator accessible via the network
    - For Windows: Open folder containing extracted Android SDK Platform tools files and run command prompt from that location to use adb commands
    ```bash
    adb tcpip 5555
