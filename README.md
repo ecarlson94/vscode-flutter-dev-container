@@ -3,6 +3,7 @@
 A new Flutter project.
 
 ## Table of Contents<!-- omit in toc -->
+
 - [Requirements](#requirements)
    - [MacOS/Windows](#macoswindows)
    - [Emulation](#emulation)
